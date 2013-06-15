@@ -14,23 +14,7 @@ import java.util.ArrayList;
  */
 public class RollBookDaoMock implements RollBookDao {
     @Override
-    public void create(RollBook rollBook) throws DaoException, DaoConnectionException {}
-
-    @Override
-    public RollBook read(Integer id) throws DaoException, DaoConnectionException {
-        throw new NotImplementedException("This is a mock");
+    public RollBook read() throws DaoException, DaoConnectionException {
+        throw new NotImplementedException("not yet");
     }
-
-    @Override
-    public ArrayList<RollBook> readAll() throws DaoException, DaoConnectionException {
-        ArrayList<RollBook> mRollBooks = new ArrayList<RollBook>();
-        mRollBooks.add(new RollBook());
-        return mRollBooks;
-    }
-
-    @Override
-    public void update(RollBook rollBook) throws DaoException, DaoConnectionException {}
-
-    @Override
-    public void delete(RollBook rollBook) throws DaoException, DaoConnectionException {}
 }

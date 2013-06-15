@@ -21,9 +21,9 @@ public abstract class DaoFactory {
         return daoFactory;
     }
 
-    public static void init(String driver, String url, String userName, String password) throws DaoConfigurationException, DaoConnectionException {
+    public static void init() throws DaoConfigurationException, DaoConnectionException {
         if (daoFactory == null)
-            DaoFactoryJson.init(driver, url, userName, password);
+            DaoFactoryMock.init();
     }
 
     abstract Connection getConnection() throws DaoConfigurationException, DaoConnectionException;

@@ -5,7 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
+import com.ambantis.magic.dao.DaoFactory;
+import com.ambantis.magic.exception.DaoConnectionException;
 import com.ambantis.magic.models.Assignment;
+import com.ambantis.magic.models.Period;
+import com.ambantis.magic.models.RollBook;
+
+import java.util.ArrayList;
 
 
 /**
@@ -37,6 +43,15 @@ public class PeriodListActivity extends FragmentActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_period_list);
+
+        // this is where we populate the object graph
+        try {
+            DaoFactory.init();
+        } catch (DaoConnectionException e) {
+            e.printStackTrace();
+        }
+        ArrayList<Period> mPeriods = RollBook.getInstance().getPeriods();
+
 
         if (findViewById(R.id.period_detail_container) != null) {
             // The detail container view will be present only in the
