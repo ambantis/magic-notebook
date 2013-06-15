@@ -7,7 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.ambantis.magic.dummy.*;
+import com.ambantis.magic.R;
+import com.ambantis.magic.dummy.DummyContent;
 //import com.ambantis.magic.R;
 
 /**
