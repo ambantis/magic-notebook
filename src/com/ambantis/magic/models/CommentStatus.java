@@ -1,4 +1,4 @@
-package com.alex.assignments.models;
+package com.ambantis.magic.models;
 
 /**
  * The status of this comment. Status can be changed by posting a

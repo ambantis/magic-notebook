@@ -1,4 +1,4 @@
-package com.alex.assignments.models;
+package com.ambantis.magic.models;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,4 @@
-package com.alex.assignments.models;
-
-import com.alex.assignments.models.Student;
+package com.ambantis.magic.models;
 
 /**
  * User: Alexandros Bantis

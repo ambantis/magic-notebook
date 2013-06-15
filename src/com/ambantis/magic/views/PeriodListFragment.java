@@ -1,4 +1,4 @@
-package com.alex.assignments;
+package com.ambantis.magic.views;
 
 import java.util.ArrayList;
 
@@ -8,13 +8,13 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import com.alex.assignments.models.Assignment;
+import com.ambantis.magic.models.Assignment;
 
 /**
  * A list fragment representing a list of Periods. This fragment
  * also supports tablet devices by allowing list items to be given an
  * 'activated' state upon selection. This helps indicate which item is
- * currently being viewed in a {@link PeriodDetailFragment}.
+ * currently being viewed in a {@linkPeriodDetailFragment}.
  * <p>
  * Activities containing this fragment MUST implement the {@link Callbacks}
  * interface.

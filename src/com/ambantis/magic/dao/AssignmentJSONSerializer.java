@@ -1,4 +1,4 @@
-package com.alex.assignments;
+package com.ambantis.magic.dao;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -10,7 +10,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 
-import com.alex.assignments.models.Assignment;
+import com.ambantis.magic.models.Assignment;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONTokener;

@@ -1,4 +1,4 @@
-package com.alex.assignments.dummy;
+package com.ambantis.magic.dummy;
 
 import java.util.ArrayList;
 import java.util.HashMap;

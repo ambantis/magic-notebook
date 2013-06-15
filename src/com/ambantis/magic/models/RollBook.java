@@ -1,6 +1,4 @@
-package com.alex.assignments.models;
-
-import com.alex.assignments.models.Period;
+package com.ambantis.magic.models;
 
 import java.util.ArrayList;
 

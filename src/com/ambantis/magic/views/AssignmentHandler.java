@@ -1,11 +1,12 @@
-package com.alex.assignments;
+package com.ambantis.magic.views;
 
 import java.util.ArrayList;
 import java.util.UUID;
 
 import android.content.Context;
 import android.util.Log;
-import com.alex.assignments.models.Assignment;
+import com.ambantis.magic.dao.AssignmentJSONSerializer;
+import com.ambantis.magic.models.Assignment;
 
 public class AssignmentHandler {
     private static final String TAG = "AssignmentHandler";

@@ -1,4 +1,4 @@
-package com.alex.assignments;
+package com.ambantis.magic.views;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,7 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.alex.assignments.dummy.DummyContent;
+import com.ambantis.magic.dummy.*;
+//import com.ambantis.magic.R;
 
 /**
  * A fragment representing a single Period detail screen.
