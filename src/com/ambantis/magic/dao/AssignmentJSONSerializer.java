@@ -10,6 +10,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 
+import com.alex.assignments.models.Assignment;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONTokener;

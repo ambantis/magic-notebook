@@ -1,4 +1,4 @@
-package com.alex.assignments;
+package com.alex.assignments.models;
 
 import java.util.UUID;
 
@@ -9,13 +9,15 @@ public class Assignment {
 
     private static final String JSON_ID = "id";
     private static final String JSON_TITLE = "title";
-    
+
     private UUID mId;
     private String mTitle;
-    
+
     public Assignment() {
         mId = UUID.randomUUID();
     }
+
+
 
     public Assignment(JSONObject json) throws JSONException {
         mId = UUID.fromString(json.getString(JSON_ID));
@@ -28,18 +30,18 @@ public class Assignment {
         json.put(JSON_TITLE, mTitle);
         return json;
     }
-    
+
     public void setTitle (String title) {
-    	mTitle = title;
+        mTitle = title;
     }
-    
+
     @Override
     public String toString() {
-    	return mTitle;
+        return mTitle;
     }
-    
+
     public UUID getId() {
         return mId;
     }
-    
+
 }

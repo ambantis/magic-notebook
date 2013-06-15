@@ -8,6 +8,7 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import com.alex.assignments.models.Assignment;
 
 /**
  * A list fragment representing a list of Periods. This fragment

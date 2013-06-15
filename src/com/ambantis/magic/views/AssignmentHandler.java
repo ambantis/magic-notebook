@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import android.content.Context;
 import android.util.Log;
+import com.alex.assignments.models.Assignment;
 
 public class AssignmentHandler {
     private static final String TAG = "AssignmentHandler";
