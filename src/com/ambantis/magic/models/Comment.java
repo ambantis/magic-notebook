@@ -64,8 +64,9 @@ public class Comment {
      * COMMENTS.replies : list[]
      * Not sure we want to use this or how? it is a nested list of other comments,
      * or perhaps another object?
+     *  todo:2013-06-15:ambantis:determine if
      */
-    private ArrayList<Comment> replies;
+    private ArrayList<Comment> mReplies;
 
 
 }

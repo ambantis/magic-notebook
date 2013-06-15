@@ -8,6 +8,6 @@ import java.util.ArrayList;
  * Time: 11:31 AM
  */
 public class Period {
-    private ArrayList<Assignment> assignments;
-    private ArrayList<StudentRecord> studentRecords;
+    private ArrayList<Assignment> mAssignments;
+    private ArrayList<Student> mStudents;
 }
