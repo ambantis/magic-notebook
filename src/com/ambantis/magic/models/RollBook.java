@@ -8,5 +8,6 @@ import java.util.ArrayList;
  * Time: 11:31 AM
  */
 public class RollBook {
-    private ArrayList<Period> periods;
+    private ArrayList<Period> mPeriods;
+    private int mSchoolYear;
 }

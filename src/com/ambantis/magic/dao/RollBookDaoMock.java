@@ -2,6 +2,7 @@ package com.ambantis.magic.dao;
 
 import com.ambantis.magic.exception.DaoConnectionException;
 import com.ambantis.magic.exception.DaoException;
+import com.ambantis.magic.exception.NotImplementedException;
 import com.ambantis.magic.models.RollBook;
 
 import java.util.ArrayList;
@@ -13,27 +14,23 @@ import java.util.ArrayList;
  */
 public class RollBookDaoMock implements RollBookDao {
     @Override
-    public void create(RollBook rollBook) throws DaoException, DaoConnectionException {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
+    public void create(RollBook rollBook) throws DaoException, DaoConnectionException {}
 
     @Override
     public RollBook read(Integer id) throws DaoException, DaoConnectionException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        throw new NotImplementedException("This is a mock");
     }
 
     @Override
     public ArrayList<RollBook> readAll() throws DaoException, DaoConnectionException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        ArrayList<RollBook> mRollBooks = new ArrayList<RollBook>();
+        mRollBooks.add(new RollBook());
+        return mRollBooks;
     }
 
     @Override
-    public void update(RollBook rollBook) throws DaoException, DaoConnectionException {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
+    public void update(RollBook rollBook) throws DaoException, DaoConnectionException {}
 
     @Override
-    public void delete(RollBook rollBook) throws DaoException, DaoConnectionException {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
+    public void delete(RollBook rollBook) throws DaoException, DaoConnectionException {}
 }

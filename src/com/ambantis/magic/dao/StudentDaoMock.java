@@ -2,6 +2,7 @@ package com.ambantis.magic.dao;
 
 import com.ambantis.magic.exception.DaoConnectionException;
 import com.ambantis.magic.exception.DaoException;
+import com.ambantis.magic.exception.NotImplementedException;
 import com.ambantis.magic.models.Student;
 
 import java.util.ArrayList;
@@ -14,12 +15,12 @@ import java.util.ArrayList;
 public class StudentDaoMock implements StudentDao {
     @Override
     public void create(Student student) throws DaoException, DaoConnectionException {
-        //To change body of implemented methods use File | Settings | File Templates.
+        throw new NotImplementedException("mock object");
     }
 
     @Override
     public Student read(Integer id) throws DaoException, DaoConnectionException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        throw new NotImplementedException("mock object");
     }
 
     @Override
@@ -28,12 +29,8 @@ public class StudentDaoMock implements StudentDao {
     }
 
     @Override
-    public void update(Student student) throws DaoException, DaoConnectionException {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
+    public void update(Student student) throws DaoException, DaoConnectionException {}
 
     @Override
-    public void delete(Student student) throws DaoException, DaoConnectionException {
-        //To change body of implemented methods use File | Settings | File Templates.
-    }
+    public void delete(Student student) throws DaoException, DaoConnectionException {}
 }
