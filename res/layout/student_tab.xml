@@ -18,16 +18,17 @@
 
     <fragment
         android:id="@+id/student_list"
-        android:name="com.ambantis.magic.views.StudentListFragment"
+        class="com.ambantis.magic.views.StudentListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
         tools:layout="@android:layout/list_content" />
-
-    <FrameLayout
+    <!--
+    <TextView
         android:id="@+id/student_detail_container"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:text="Hello!"
         android:layout_weight="1" />
-
+        -->
 </LinearLayout>

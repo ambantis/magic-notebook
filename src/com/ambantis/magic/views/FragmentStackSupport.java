@@ -16,7 +16,6 @@
 
 package com.ambantis.magic.views;
 
-import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;

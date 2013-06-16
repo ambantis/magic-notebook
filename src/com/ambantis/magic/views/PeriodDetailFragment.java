@@ -61,14 +61,14 @@ public class PeriodDetailFragment extends Fragment {
         Bundle arguments = new Bundle();
         arguments.putString(StudentListFragment.INDEX_ID, mIndex);
         
-        mTabHost.addTab(mTabHost.newTabSpec("simple").setIndicator("Simple"),
-                FragmentStackSupport.CountingFragment.class, arguments);
-//        mTabHost.addTab(mTabHost.newTabSpec("contacts").setIndicator("Contacts"),
-//                LoaderCursorSupport.CursorLoaderListFragment.class, null);
         mTabHost.addTab(mTabHost.newTabSpec("StudentList").setIndicator("Students"),
-                LoaderCustomSupport.StudentListFragment.class, arguments);
-        mTabHost.addTab(mTabHost.newTabSpec("throttle").setIndicator("Throttle"),
-                LoaderThrottleSupport.ThrottledLoaderListFragment.class, null);
+                StudentListFragment.class, arguments);
+        mTabHost.addTab(mTabHost.newTabSpec("AssignmentList").setIndicator("Assignments"),
+                AssignmentListFragment.class, arguments);
+//        mTabHost.addTab(mTabHost.newTabSpec("simple").setIndicator("Simple"),
+//                FragmentStackSupport.CountingFragment.class, arguments);
+//        mTabHost.addTab(mTabHost.newTabSpec("throttle").setIndicator("Throttle"),
+//                LoaderThrottleSupport.ThrottledLoaderListFragment.class, null);
 
         return mTabHost;
     }

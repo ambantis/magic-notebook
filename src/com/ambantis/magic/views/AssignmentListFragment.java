@@ -10,20 +10,17 @@ import android.support.v4.widget.SearchViewCompat.OnCloseListenerCompat;
 import android.support.v4.widget.SearchViewCompat.OnQueryTextListenerCompat;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.ambantis.magic.R;
+import com.ambantis.magic.models.Assignment;
 import com.ambantis.magic.models.Period;
 import com.ambantis.magic.models.RollBook;
-import com.ambantis.magic.models.Student;
 import com.ambantis.magic.views.PeriodListFragment.Callbacks;
 
 /**
@@ -36,15 +33,15 @@ import com.ambantis.magic.views.PeriodListFragment.Callbacks;
  * interface.
  */
 
-public class StudentListFragment extends ListFragment {
-	private ArrayList<Student> mStudents;
+public class AssignmentListFragment extends ListFragment {
+	private ArrayList<Assignment> mAssignments;
     private RollBook rb;
     private Period mPeriod;
     private int mIndex;
     public static final String INDEX_ID = "index_id";
 
 	// This is the Adapter being used to display the list's data.
-	StudentListAdapter mAdapter;
+	AssignmentListAdapter mAdapter;
 
 	// If non-null, this is the current filter the user has provided.
 	String mCurFilter;
@@ -62,18 +59,18 @@ public class StudentListFragment extends ListFragment {
 
 		mIndex = Integer.parseInt(getArguments().getString(INDEX_ID)) - 1;
         mPeriod = rb.getPeriods().get(mIndex);
-		mStudents= mPeriod.getmStudents();
+		mAssignments = mPeriod.getmAssignments();
 				
 
 		// Give some text to display if there is no data.  In a real
 		// application this would come from a resource.
-		setEmptyText("No Students");
+		setEmptyText("No Assignments");
 
 		// We have a menu item to show in action bar.
 		setHasOptionsMenu(true);
 
 		// Create an empty adapter we will use to display the loaded data
-        mAdapter = new StudentListAdapter(mStudents);
+        mAdapter = new AssignmentListAdapter(mAssignments);
         // TODO: replace with a real list adapter.
 		setListAdapter(mAdapter);
 	}
@@ -127,9 +124,9 @@ public class StudentListFragment extends ListFragment {
 		Log.i("LoaderCustom", "Item clicked: " + id);
 	}
 	
-    private class StudentListAdapter extends ArrayAdapter<Student> {
-        public StudentListAdapter(ArrayList<Student> students) {
-            super(getActivity(), R.layout.list_item, students);
+    private class AssignmentListAdapter extends ArrayAdapter<Assignment> {
+        public AssignmentListAdapter(ArrayList<Assignment> assignments) {
+            super(getActivity(), R.layout.list_item, assignments);
         }
     }
 }

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.ambantis.magic.R;
 import com.ambantis.magic.models.Period;
 import com.ambantis.magic.models.RollBook;
 
@@ -151,7 +152,7 @@ public class PeriodListFragment extends ListFragment {
     
     private class PeriodAdapter extends ArrayAdapter<Period> {
         public PeriodAdapter(ArrayList<Period> periods) {
-            super(getActivity(), android.R.layout.simple_list_item_1, periods);
+            super(getActivity(), R.layout.period_list_item, periods);
         }
     }
 }
