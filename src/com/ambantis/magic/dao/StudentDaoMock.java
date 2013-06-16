@@ -26,12 +26,14 @@ public class StudentDaoMock implements StudentDao {
 
     @Override
     public ArrayList<Student> readAll() throws DaoException, DaoConnectionException {
+        DaoFactory dao = DaoFactory.getInstance();
         ArrayList<Student> mockStudents = new ArrayList<Student>();
-        Student s1 = new Student(new ArrayList<Document>(), "Johnny", "Quest");
-        Student s2 = new Student(new ArrayList<Document>(), "Heriberto", "Martinez");
-        Student s3 = new Student(new ArrayList<Document>(), "Ana", "Nicole");
-        Student s4 = new Student(new ArrayList<Document>(), "Jennifer", "Lopez");
-        Student s5 = new Student(new ArrayList<Document>(), "Suzie", "Que");
+        ArrayList<Document> docs =  DaoFactory.getInstance().getDocumentDao().readAll();
+        Student s1 = new Student(dao.getDocumentDao().readAll(), "Johnny", "Quest");
+        Student s2 = new Student(dao.getDocumentDao().readAll(), "Heriberto", "Martinez");
+        Student s3 = new Student(dao.getDocumentDao().readAll(), "Ana", "Nicole");
+        Student s4 = new Student(dao.getDocumentDao().readAll(), "Jennifer", "Lopez");
+        Student s5 = new Student(dao.getDocumentDao().readAll(), "Suzie", "Que");
         mockStudents.add(s1);
         mockStudents.add(s2);
         mockStudents.add(s3);

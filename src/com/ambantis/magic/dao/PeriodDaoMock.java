@@ -15,6 +15,12 @@ import java.util.ArrayList;
  * Time: 2:53 PM
  */
 public class PeriodDaoMock implements PeriodDao {
+    DaoFactory dao;
+
+    public PeriodDaoMock() {
+        dao = DaoFactory.getInstance();
+    }
+
     @Override
     public void create(Period period) throws DaoException, DaoConnectionException {
         //To change body of implemented methods use File | Settings | File Templates.
@@ -27,33 +33,35 @@ public class PeriodDaoMock implements PeriodDao {
 
     @Override
     public ArrayList<Period> readAll() throws DaoException, DaoConnectionException {
+        ArrayList<Assignment> tmpAssignments = dao.getAssignmentDao().readAll();
+        ArrayList<Student> tmpStudents = dao.getStudentDao().readAll();
         Period p1 = new Period(
-                new ArrayList<Assignment>(),
-                new ArrayList<Student>(),
+                dao.getAssignmentDao().readAll(),
+                dao.getStudentDao().readAll(),
                 "Art",
                 "1"
         );
         Period p2 = new Period(
-                new ArrayList<Assignment>(),
-                new ArrayList<Student>(),
+                dao.getAssignmentDao().readAll(),
+                dao.getStudentDao().readAll(),
                 "Algebra II",
                 "2"
         );
         Period p3 = new Period(
-                new ArrayList<Assignment>(),
-                new ArrayList<Student>(),
+                dao.getAssignmentDao().readAll(),
+                dao.getStudentDao().readAll(),
                 "US History",
                 "3"
         );
         Period p4 = new Period(
-                new ArrayList<Assignment>(),
-                new ArrayList<Student>(),
+                dao.getAssignmentDao().readAll(),
+                dao.getStudentDao().readAll(),
                 "Spanish",
                 "4"
         );
         Period p5 = new Period(
-                new ArrayList<Assignment>(),
-                new ArrayList<Student>(),
+                dao.getAssignmentDao().readAll(),
+                dao.getStudentDao().readAll(),
                 "English",
                 "5"
         );
@@ -63,25 +71,13 @@ public class PeriodDaoMock implements PeriodDao {
                 "Chemistry",
                 "6"
         );
-        ArrayList<Period> tmpPeriods = new ArrayList<Period>();
-        tmpPeriods.add(p1);
-        tmpPeriods.add(p2);
-        tmpPeriods.add(p3);
-        tmpPeriods.add(p4);
-        tmpPeriods.add(p5);
-        tmpPeriods.add(p6);
-
-        ArrayList<Assignment> tmpAssignments = new ArrayList<Assignment>();
-        tmpAssignments = DaoFactory.getInstance().getAssignmentDao().readAll();
-
-        ArrayList<Student> tmpStudents = new ArrayList<Student>();
-        tmpStudents = DaoFactory.getInstance().getStudentDao().readAll();
-
-        for (Period p : tmpPeriods) {
-            p.setmAssignments(tmpAssignments);
-            p.setmStudents(tmpStudents);
-        }
-        return tmpPeriods;
+        ArrayList<Period> periods = new ArrayList<Period>();
+        periods.add(p1);
+        periods.add(p2);
+        periods.add(p3);
+        periods.add(p4);
+        periods.add(p5);
+        return periods;
     }
 
     @Override

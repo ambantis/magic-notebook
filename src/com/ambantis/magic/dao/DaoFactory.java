@@ -31,24 +31,16 @@ public abstract class DaoFactory {
         return new AssignmentDaoMock();
     }
 
-    public CommentDao getUserDao() {
-        return new CommentDaoMock();
-    }
-
     public DocumentDao getDocumentDao() {
         return new DocumentDaoMock();
     }
 
+    public CommentDao getCommentDao() {
+        return new CommentDaoMock();
+    }
+
     public PeriodDao getPeriodDao() {
         return new PeriodDaoMock();
-    }
-
-    public RevisionDao getRevisionDao() {
-        return new RevisionDaoMock();
-    }
-
-    public RollBookDao getRollBookDao() {
-        return new RollBookDaoMock();
     }
 
     public StudentDao getStudentDao() {

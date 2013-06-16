@@ -14,7 +14,7 @@ import java.util.Date;
 public class Comment implements Jsonable {
 
     private final static Comment nullComment =
-            new Comment(null,null,null, null,null,null,null,null,null);
+            new Comment(null,null,null, null,null,null);
 
     public static Comment getNullComment() {
         return nullComment;
@@ -50,11 +50,11 @@ public class Comment implements Jsonable {
      */
     private String mContent;
 
-    /**
-     * The status of this comment.
-     * COMMENTS.status : string
-     */
-    private CommentStatus mStatus;
+//    /**
+//     * The status of this comment.
+//     * COMMENTS.status : string
+//     */
+//    private CommentStatus mStatus;
 
     /**
      * The file which this comment is addressing.
@@ -62,33 +62,33 @@ public class Comment implements Jsonable {
      */
     private String mFileID;
 
-    /**
-     * The title of the file which this comment is addressing.
-     * COMMENTS.fileTitle : string
-     */
-    private String mFileTitle;
-
-    /**
-     * Replies to this post.
-     * COMMENTS.replies : list[]
-     * Not sure we want to use this or how? it is a nested list of other comments,
-     * or perhaps another object?
-     *  todo:2013-06-15:ambantis:determine if
-     */
-    private ArrayList<Comment> mReplies;
+//    /**
+//     * The title of the file which this comment is addressing.
+//     * COMMENTS.fileTitle : string
+//     */
+//    private String mFileTitle;
+//
+//    /**
+//     * Replies to this post.
+//     * COMMENTS.replies : list[]
+//     * Not sure we want to use this or how? it is a nested list of other comments,
+//     * or perhaps another object?
+//     *  todo:2013-06-15:ambantis:determine if
+//     */
+//    private ArrayList<Comment> mReplies;
 
     public Comment(String mSelfLink, String mCommentId, Date mCreateDate, Student mAuthor,
-                   String mContent, CommentStatus mStatus, String mFileID, String mFileTitle,
-                   ArrayList<Comment> mReplies) {
+                   String mContent, /*CommentStatus mStatus,*/ String mFileID) {
+//                    , String mFileTitle, ArrayList<Comment> mReplies) {
         this.mSelfLink = mSelfLink;
         this.mCommentId = mCommentId;
         this.mCreateDate = mCreateDate;
         this.mAuthor = mAuthor;
         this.mContent = mContent;
-        this.mStatus = mStatus;
+//      this.mStatus = mStatus;
         this.mFileID = mFileID;
-        this.mFileTitle = mFileTitle;
-        this.mReplies = mReplies;
+//      this.mFileTitle = mFileTitle;
+//        this.mReplies = mReplies;
     }
 
     public String getmSelfLink() {
@@ -131,13 +131,13 @@ public class Comment implements Jsonable {
         this.mContent = mContent;
     }
 
-    public CommentStatus getmStatus() {
-        return mStatus;
-    }
-
-    public void setmStatus(CommentStatus mStatus) {
-        this.mStatus = mStatus;
-    }
+//    public CommentStatus getmStatus() {
+//        return mStatus;
+//    }
+//
+//    public void setmStatus(CommentStatus mStatus) {
+//        this.mStatus = mStatus;
+//    }
 
     public String getmFileID() {
         return mFileID;
@@ -147,22 +147,22 @@ public class Comment implements Jsonable {
         this.mFileID = mFileID;
     }
 
-    public String getmFileTitle() {
-        return mFileTitle;
-    }
-
-    public void setmFileTitle(String mFileTitle) {
-        this.mFileTitle = mFileTitle;
-    }
-
-    public ArrayList<Comment> getmReplies() {
-        return mReplies;
-    }
-
-    public void setmReplies(ArrayList<Comment> mReplies) {
-        this.mReplies = mReplies;
-    }
-
+//    public String getmFileTitle() {
+//        return mFileTitle;
+//    }
+//
+//    public void setmFileTitle(String mFileTitle) {
+//        this.mFileTitle = mFileTitle;
+//    }
+//
+//    public ArrayList<Comment> getmReplies() {
+//        return mReplies;
+//    }
+//
+//    public void setmReplies(ArrayList<Comment> mReplies) {
+//        this.mReplies = mReplies;
+//    }
+//
     @Override
     public JSONObject toJSON() throws JSONException {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
