@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.ambantis.magic.R;
 
@@ -124,10 +125,10 @@ public class FragmentStackSupport extends FragmentActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View v = inflater.inflate(R.layout.student_tab, container, false);
-//            View tv = v.findViewById(R.id.text);
-//            ((TextView)tv).setText("Fragment #" + mNum);
-//            tv.setBackgroundDrawable(getResources().getDrawable(android.R.drawable.gallery_thumb));
+            View v = inflater.inflate(R.layout.hello_world, container, false);
+            View tv = v.findViewById(R.id.text);
+            ((TextView)tv).setText("Fragment #" + mNum);
+            tv.setBackgroundDrawable(getResources().getDrawable(android.R.drawable.gallery_thumb));
             return v;
         }
     }

@@ -18,7 +18,6 @@
 
     <fragment
         android:id="@+id/assignment_list"
-        android:name="com.ambantis.magic.views.AssignmentListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

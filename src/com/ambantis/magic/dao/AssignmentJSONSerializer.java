@@ -1,3 +1,4 @@
+/*
 package com.ambantis.magic.dao;
 
 import java.io.BufferedReader;
@@ -73,3 +74,5 @@ public class AssignmentJSONSerializer {
 		}
 	}
 }
+
+*/

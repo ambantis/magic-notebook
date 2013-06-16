@@ -18,7 +18,6 @@
 
     <fragment
         android:id="@+id/student_list"
-        android:name="com.ambantis.magic.views.StudentListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
