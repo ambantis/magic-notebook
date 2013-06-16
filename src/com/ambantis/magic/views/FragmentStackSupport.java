@@ -16,8 +16,7 @@
 
 package com.ambantis.magic.views;
 
-import java.util.ArrayList;
-
+import android.app.ListFragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -31,11 +30,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.ambantis.magic.R;
-import com.ambantis.magic.models.Student;
 
 public class FragmentStackSupport extends FragmentActivity {
     int mStackLevel = 1;
-    private ArrayList<Student> mStudents;
+    int mIndex;
+    public static final String INDEX_ID = "index_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +62,7 @@ public class FragmentStackSupport extends FragmentActivity {
 
         if (savedInstanceState == null) {
             // Do first time initialization -- add initial fragment.
-            Fragment newFragment = CountingFragment.newInstance(mStackLevel);
+            Fragment newFragment = CountingFragment.newInstance(mIndex);
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.add(R.id.simple_fragment, newFragment).commit();
         } else {
@@ -92,11 +91,12 @@ public class FragmentStackSupport extends FragmentActivity {
         ft.addToBackStack(null);
         ft.commit();
     }
-
+    
 
 
     public static class CountingFragment extends Fragment {
         int mNum;
+        int mIndex;
 
         /**
          * Create a new instance of CountingFragment, providing "num"
@@ -119,7 +119,10 @@ public class FragmentStackSupport extends FragmentActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            mNum = getArguments() != null ? getArguments().getInt("num") : 1;
+//            mNum = getArguments() != null ? getArguments().getInt("num") : 1;
+            mNum = 1;
+            mIndex = Integer.parseInt(getArguments().getString(INDEX_ID));
+
         }
 
         /**
@@ -129,9 +132,9 @@ public class FragmentStackSupport extends FragmentActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View v = inflater.inflate(R.layout.student_tab, container, false);
+            View v = inflater.inflate(R.layout.hello_world, container, false);
             View tv = v.findViewById(R.id.text);
-            ((TextView)tv).setText("Fragment #" + mNum);
+            ((TextView)tv).setText("Fragment #" + mIndex);
             tv.setBackgroundDrawable(getResources().getDrawable(android.R.drawable.gallery_thumb));
             return v;
         }

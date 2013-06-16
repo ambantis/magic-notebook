@@ -60,6 +60,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ambantis.magic.R;
+import com.ambantis.magic.models.Period;
+import com.ambantis.magic.models.RollBook;
+import com.ambantis.magic.models.Student;
 
 /**
  * Demonstration of the implementation of a custom Loader.
@@ -74,8 +77,159 @@ public class LoaderCustomSupport extends FragmentActivity {
 
         // Create the list fragment and add it as our sole content.
         if (fm.findFragmentById(android.R.id.content) == null) {
-            AppListFragment list = new AppListFragment();
+            StudentListFragment list = new StudentListFragment();
             fm.beginTransaction().add(android.R.id.content, list).commit();
+        }
+    }
+    
+    public static class StudentEntry {
+        private String mFirstName;
+        private String mLastName;
+        
+    	public StudentEntry(Student s){
+    		mFirstName = s.getFirstName();
+    		mLastName = s.getLastName();
+    	}
+    	
+    	public String getFirstName(){
+    		return mFirstName;
+    	}
+    	
+    	public String getLastName(){
+    		return mLastName;
+    	}
+    	
+    	public String toString(){
+    		return mFirstName + " " + mLastName;
+    	}
+    	
+    	
+    }
+    /*
+    public static class StudentListAdapter extends ArrayAdapter<StudentEntry> {
+        private final LayoutInflater mInflater;
+
+        public StudentListAdapter(Context context) {
+            super(context, android.R.layout.simple_list_item_1);
+            mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        }
+
+        public void setData(List<StudentEntry> data) {
+            clear();
+            if (data != null) {
+                for (StudentEntry studentEntry : data) {
+                    add(studentEntry);
+                }
+            }
+        }
+*/
+  
+        /**
+         * Populate new items in the list.
+         */
+    /*
+        @Override public View getView(int position, View convertView, ViewGroup parent) {
+            View view;
+
+            if (convertView == null) {
+                view = mInflater.inflate(R.layout.list_item_student_text, parent, false);
+            } else {
+                view = convertView;
+            }
+
+            StudentEntry item = getItem(position);
+            ((TextView)view.findViewById(R.id.text)).setText(item.toString());
+
+            return view;
+        }
+    }
+    */
+    
+
+    
+    public static class StudentListFragment extends ListFragment {
+    	private ArrayList<Student> mStudents;
+        private RollBook rb;
+        private Period mPeriod;
+        private int mIndex;
+        public static final String INDEX_ID = "index_id";
+
+    	// This is the Adapter being used to display the list's data.
+    	StudentListAdapter mAdapter;
+
+    	// If non-null, this is the current filter the user has provided.
+    	String mCurFilter;
+
+    	OnQueryTextListenerCompat mOnQueryTextListenerCompat;
+
+    	@Override public void onActivityCreated(Bundle savedInstanceState) {
+    		super.onActivityCreated(savedInstanceState);
+    		
+    		rb = RollBook.getInstance();
+    		
+
+    		mIndex = Integer.parseInt(getArguments().getString(INDEX_ID));
+            mPeriod = rb.getPeriods().get(mIndex);
+    		mStudents= mPeriod.getmStudents();
+    				
+
+    		// Give some text to display if there is no data.  In a real
+    		// application this would come from a resource.
+    		setEmptyText("No Students");
+
+    		// We have a menu item to show in action bar.
+    		setHasOptionsMenu(true);
+
+    		// Create an empty adapter we will use to display the loaded data
+            mAdapter = new StudentListAdapter(mStudents);
+            // TODO: replace with a real list adapter.
+    		setListAdapter(mAdapter);
+
+    	}
+
+    	@Override public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    		// Place an action bar item for searching.
+    		MenuItem item = menu.add("Search");
+    		item.setIcon(android.R.drawable.ic_menu_search);
+    		MenuItemCompat.setShowAsAction(item, MenuItemCompat.SHOW_AS_ACTION_IF_ROOM
+    				| MenuItemCompat.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+    		final View searchView = SearchViewCompat.newSearchView(getActivity());
+    		if (searchView != null) {
+    			SearchViewCompat.setOnQueryTextListener(searchView,
+    					new OnQueryTextListenerCompat() {
+    				@Override
+    				public boolean onQueryTextChange(String newText) {
+    					// Called when the action bar search text has changed.  Since this
+    					// is a simple array adapter, we can just have it do the filtering.
+    					mCurFilter = !TextUtils.isEmpty(newText) ? newText : null;
+    					mAdapter.getFilter().filter(mCurFilter);
+    					return true;
+    				}
+    			});
+    			SearchViewCompat.setOnCloseListener(searchView,
+    					new OnCloseListenerCompat() {
+    				@Override
+    				public boolean onClose() {
+    					if (!TextUtils.isEmpty(SearchViewCompat.getQuery(searchView))) {
+    						SearchViewCompat.setQuery(searchView, null, true);
+    					}
+    					return true;
+    				}
+
+    			});
+    			MenuItemCompat.setActionView(item, searchView);
+    		}
+    	}
+
+    	@Override public void onListItemClick(ListView l, View v, int position, long id) {
+    		// Insert desired behavior here.
+    		Log.i("LoaderCustom", "Item clicked: " + id);
+    	}
+    	
+        private class StudentListAdapter extends ArrayAdapter<Student> {
+            public StudentListAdapter(ArrayList<Student> students) {
+                super(getActivity(), android.R.layout.simple_list_item_1, students);
+            }
         }
     }
 
@@ -401,6 +555,7 @@ public class LoaderCustomSupport extends FragmentActivity {
             return view;
         }
     }
+    
 
     public static class AppListFragment extends ListFragment
             implements LoaderManager.LoaderCallbacks<List<AppEntry>> {

@@ -24,13 +24,13 @@
     <FrameLayout
             android:id="@+id/simple_fragment"
             android:layout_width="match_parent"
-            android:layout_height="0px"
+            android:layout_height="400dp"
             android:layout_weight="1">
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_weight="0" android:orientation="horizontal">
+        android:layout_weight="1" android:orientation="horizontal">
         <Button android:id="@+id/home"
             android:layout_width="wrap_content" android:layout_height="wrap_content"
             android:text="@string/home">
