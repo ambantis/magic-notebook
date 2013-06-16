@@ -27,7 +27,7 @@ public abstract class DaoFactory {
 
     abstract Connection getConnection() throws DaoConfigurationException, DaoConnectionException;
 
-    public AssignmentDao getBugDao() {
+    public AssignmentDao getAssignmentDao() {
         return new AssignmentDaoMock();
     }
 

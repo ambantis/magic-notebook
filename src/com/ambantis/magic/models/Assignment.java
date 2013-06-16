@@ -1,6 +1,5 @@
 package com.ambantis.magic.models;
 
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -59,6 +58,22 @@ public class Assignment implements Jsonable {
 
     public void setDueDate(Date dueDate) {
         this.mDueDate = dueDate;
+    }
+
+    public Date getmCreateDate() {
+        return mCreateDate;
+    }
+
+    public void setmCreateDate(Date mCreateDate) {
+        this.mCreateDate = mCreateDate;
+    }
+
+    public Date getmDueDate() {
+        return mDueDate;
+    }
+
+    public void setmDueDate(Date mDueDate) {
+        this.mDueDate = mDueDate;
     }
 
     @Override

@@ -21,65 +21,11 @@ public class RollBook implements Jsonable {
     public static RollBook getInstance() {
         if (mRollBook == null) {
             mRollBook = new RollBook();
-            Period p1 = new Period(
-                    new ArrayList<Assignment>(),
-                    new ArrayList<Student>(),
-                    "Art",
-                    "1"
-            );
-            Period p2 = new Period(
-                    new ArrayList<Assignment>(),
-                    new ArrayList<Student>(),
-                    "Algebra II",
-                    "2"
-            );
-            Period p3 = new Period(
-                    new ArrayList<Assignment>(),
-                    new ArrayList<Student>(),
-                    "US History",
-                    "3"
-            );
-            Period p4 = new Period(
-                    new ArrayList<Assignment>(),
-                    new ArrayList<Student>(),
-                    "Spanish",
-                    "4"
-            );
-            Period p5 = new Period(
-                    new ArrayList<Assignment>(),
-                    new ArrayList<Student>(),
-                    "English",
-                    "5"
-            );
-            Period p6 = new Period(
-                    new ArrayList<Assignment>(),
-                    new ArrayList<Student>(),
-                    "Chemistry",
-                    "6"
-            );
-            ArrayList<Period> tmpPeriods = new ArrayList<Period>();
-            tmpPeriods.add(p1);
-            tmpPeriods.add(p2);
-            tmpPeriods.add(p3);
-            tmpPeriods.add(p4);
-            tmpPeriods.add(p5);
-            tmpPeriods.add(p6);
-            mRollBook.setPeriods(tmpPeriods);
-
-            ArrayList<Student> tmpStudents = new ArrayList<Student>();
             try {
-                tmpStudents = DaoFactory.getInstance().getStudentDao().readAll();
+                mRollBook.setPeriods(DaoFactory.getInstance().getPeriodDao().readAll());
             } catch (DaoConnectionException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                e.printStackTrace();
             }
-
-            for (Period period : tmpPeriods) {
-                period.setmStudents(tmpStudents);
-            }
-
-
-
-
         }
         return mRollBook;
     }

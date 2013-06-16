@@ -24,7 +24,8 @@ public class DocumentDaoMock implements DocumentDao {
 
     @Override
     public ArrayList<Document> readAll() throws DaoException, DaoConnectionException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        ArrayList<Document> tmpDocuments = new ArrayList<Document>();
+        return tmpDocuments;
     }
 
     @Override
