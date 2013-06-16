@@ -34,4 +34,42 @@ public class Revision {
      */
     private String mLastModifyingUserName;
 
+    public Revision(String mId, Date mModifiedDate, String mPublishedLink, String mLastModifyingUserName) {
+        this.mId = mId;
+        this.mModifiedDate = mModifiedDate;
+        this.mPublishedLink = mPublishedLink;
+        this.mLastModifyingUserName = mLastModifyingUserName;
+    }
+
+    public String getmId() {
+        return mId;
+    }
+
+    public void setmId(String mId) {
+        this.mId = mId;
+    }
+
+    public Date getmModifiedDate() {
+        return mModifiedDate;
+    }
+
+    public void setmModifiedDate(Date mModifiedDate) {
+        this.mModifiedDate = mModifiedDate;
+    }
+
+    public String getmPublishedLink() {
+        return mPublishedLink;
+    }
+
+    public void setmPublishedLink(String mPublishedLink) {
+        this.mPublishedLink = mPublishedLink;
+    }
+
+    public String getmLastModifyingUserName() {
+        return mLastModifyingUserName;
+    }
+
+    public void setmLastModifyingUserName(String mLastModifyingUserName) {
+        this.mLastModifyingUserName = mLastModifyingUserName;
+    }
 }

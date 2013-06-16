@@ -52,7 +52,6 @@ public class Comment {
      */
     private String mFileID;
 
-
     /**
      * The title of the file which this comment is addressing.
      * COMMENTS.fileTitle : string
@@ -68,5 +67,89 @@ public class Comment {
      */
     private ArrayList<Comment> mReplies;
 
+    public Comment(String mSelfLink, String mCommentId, Date mCreateDate, Student mAuthor,
+                   String mContent, CommentStatus mStatus, String mFileID, String mFileTitle,
+                   ArrayList<Comment> mReplies) {
+        this.mSelfLink = mSelfLink;
+        this.mCommentId = mCommentId;
+        this.mCreateDate = mCreateDate;
+        this.mAuthor = mAuthor;
+        this.mContent = mContent;
+        this.mStatus = mStatus;
+        this.mFileID = mFileID;
+        this.mFileTitle = mFileTitle;
+        this.mReplies = mReplies;
+    }
 
+    public String getmSelfLink() {
+        return mSelfLink;
+    }
+
+    public void setmSelfLink(String mSelfLink) {
+        this.mSelfLink = mSelfLink;
+    }
+
+    public String getmCommentId() {
+        return mCommentId;
+    }
+
+    public void setmCommentId(String mCommentId) {
+        this.mCommentId = mCommentId;
+    }
+
+    public Date getmCreateDate() {
+        return mCreateDate;
+    }
+
+    public void setmCreateDate(Date mCreateDate) {
+        this.mCreateDate = mCreateDate;
+    }
+
+    public Student getmAuthor() {
+        return mAuthor;
+    }
+
+    public void setmAuthor(Student mAuthor) {
+        this.mAuthor = mAuthor;
+    }
+
+    public String getmContent() {
+        return mContent;
+    }
+
+    public void setmContent(String mContent) {
+        this.mContent = mContent;
+    }
+
+    public CommentStatus getmStatus() {
+        return mStatus;
+    }
+
+    public void setmStatus(CommentStatus mStatus) {
+        this.mStatus = mStatus;
+    }
+
+    public String getmFileID() {
+        return mFileID;
+    }
+
+    public void setmFileID(String mFileID) {
+        this.mFileID = mFileID;
+    }
+
+    public String getmFileTitle() {
+        return mFileTitle;
+    }
+
+    public void setmFileTitle(String mFileTitle) {
+        this.mFileTitle = mFileTitle;
+    }
+
+    public ArrayList<Comment> getmReplies() {
+        return mReplies;
+    }
+
+    public void setmReplies(ArrayList<Comment> mReplies) {
+        this.mReplies = mReplies;
+    }
 }
