@@ -8,6 +8,11 @@ public class Assignment {
     private String mId;
     private Date createDate;
     private Date dueDate;
+    private final static Assignment nullAssignment = new Assignment(null,null,null,null);
+
+    public Assignment getNullAssignment() {
+        return nullAssignment;
+    }
 
     public Assignment(String mTitle, String mId, Date createDate, Date dueDate) {
         this.mTitle = mTitle;

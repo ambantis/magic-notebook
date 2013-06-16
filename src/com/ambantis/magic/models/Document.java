@@ -10,6 +10,12 @@ import java.util.ArrayList;
 public class Document {
     private Assignment mAssignment;
 
+    private final static Document nullDocument = new Document(null,null,null,null,null,null);
+
+    public Document getNullDocument() {
+        return nullDocument;
+    }
+
     /**
      * The ID of the file.
      * FILE.id : string

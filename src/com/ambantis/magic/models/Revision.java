@@ -9,6 +9,12 @@ import java.util.Date;
  */
 public class Revision {
 
+    private static final Revision nullRevision = new Revision(null,null,null,null);
+
+    public Revision getNullRevision() {
+        return nullRevision;
+    }
+
     /**
      * The document id
      * REVISION.id : string

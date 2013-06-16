@@ -10,6 +10,13 @@ import java.util.Date;
  */
 public class Comment {
 
+    private final static Comment nullComment =
+            new Comment(null,null,null, null,null,null,null,null,null);
+
+    public Comment getNullComment() {
+        return nullComment;
+    }
+
     /**
      * A link back to this comment.
      * COMMENTS.selfLink : string
