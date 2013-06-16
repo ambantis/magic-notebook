@@ -54,4 +54,9 @@ public class Student implements Jsonable {
     public JSONObject toJSON() throws JSONException {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName;
+    }
 }

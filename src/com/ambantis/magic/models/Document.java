@@ -82,6 +82,11 @@ public class Document implements Jsonable {
     }
 
     @Override
+    public String toString() {
+        return mTitle;
+    }
+
+    @Override
     public JSONObject toJSON() throws JSONException {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
     }

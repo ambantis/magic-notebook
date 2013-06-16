@@ -163,6 +163,13 @@ public class Comment implements Jsonable {
 //        this.mReplies = mReplies;
 //    }
 //
+
+
+    @Override
+    public String toString() {
+        return mContent;
+    }
+
     @Override
     public JSONObject toJSON() throws JSONException {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
