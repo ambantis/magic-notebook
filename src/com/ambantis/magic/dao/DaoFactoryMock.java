@@ -17,8 +17,7 @@ public class DaoFactoryMock extends DaoFactory {
 
     public static DaoFactoryMock getInstance() {
         if (mDaoFactoryMock == null) {
-            //logger.error("cannot get instance of database as it has not yet been initialized");
-            throw new DaoConfigurationException("Database has not been initialized.");
+            mDaoFactoryMock = new DaoFactoryMock();
         }
         return mDaoFactoryMock;
     }
