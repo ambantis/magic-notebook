@@ -32,6 +32,10 @@ public class AssignmentDaoMock implements AssignmentDao {
         Assignment s4 = new Assignment("Lose 50 pounds for only $9.95 per year", "4", new Date(), new Date());
         Assignment s5 = new Assignment("The Next Bubble: North Korean Hip Hop", "5", new Date(), new Date());
         tmpAssignments.add(s1);
+        tmpAssignments.add(s2);
+        tmpAssignments.add(s3);
+        tmpAssignments.add(s4);
+        tmpAssignments.add(s5);
         return tmpAssignments;
     }
 

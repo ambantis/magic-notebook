@@ -86,6 +86,11 @@ public class Assignment implements Jsonable {
         return json;
     }
 
+    @Override
+    public String toString() {
+        return mTitle;
+    }
+
     //    import java.util.UUID;
 //    import org.json.JSONException;
 //    import org.json.JSONObject;
