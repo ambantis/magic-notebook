@@ -1,3 +1,4 @@
+/*
 package com.ambantis.magic.views;
 
 import java.util.ArrayList;
@@ -7,7 +8,8 @@ import android.content.Context;
 import android.util.Log;
 import com.ambantis.magic.dao.AssignmentJSONSerializer;
 import com.ambantis.magic.models.Assignment;
-
+*/
+/*
 public class AssignmentHandler {
     private static final String TAG = "AssignmentHandler";
     private static final String FILENAME = "assignments.json";
@@ -22,14 +24,14 @@ public class AssignmentHandler {
         mAppContext = appContext;
         mSerializer = new AssignmentJSONSerializer(mAppContext, FILENAME);
 
-        /*
+        
         try {
             mAssignments = mSerializer.loadAssignments();
         } catch (Exception e) {
             mAssignments = new ArrayList<Assignment>();
             Log.e(TAG, "Error loading assignments: ", e);
         }
-        */
+       
         
         mAssignments = new ArrayList<Assignment>();
         
@@ -74,4 +76,5 @@ public class AssignmentHandler {
             return false;
         }
     }
-}
+} 
+*/

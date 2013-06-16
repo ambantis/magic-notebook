@@ -8,7 +8,9 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import com.ambantis.magic.models.Assignment;
+
+import com.ambantis.magic.models.Period;
+import com.ambantis.magic.models.RollBook;
 
 /**
  * A list fragment representing a list of Periods. This fragment
@@ -21,7 +23,7 @@ import com.ambantis.magic.models.Assignment;
  */
 public class PeriodListFragment extends ListFragment {
 	
-	private ArrayList<Assignment> mAssignments;
+	private ArrayList<Period> mPeriods;
 
     /**
      * The serialization (saved instance state) Bundle key representing the
@@ -49,7 +51,7 @@ public class PeriodListFragment extends ListFragment {
         /**
          * Callback for when an item has been selected.
          */
-        public void onItemSelected(Assignment assignment);
+        public void onItemSelected(Period period);
     }
 
 
@@ -64,8 +66,8 @@ public class PeriodListFragment extends ListFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        mAssignments = AssignmentHandler.get(getActivity()).getAssignments();
-        AssignmentAdapter adapter = new AssignmentAdapter(mAssignments);
+        ArrayList<Period> mPeriods = RollBook.getInstance().getPeriods();
+        PeriodAdapter adapter = new PeriodAdapter(mPeriods);
         // TODO: replace with a real list adapter.
         setListAdapter(adapter);
         setRetainInstance(true);
@@ -103,18 +105,18 @@ public class PeriodListFragment extends ListFragment {
     }
     
     public void updateUI() {
-        ((AssignmentAdapter)getListAdapter()).notifyDataSetChanged();
+        ((PeriodAdapter)getListAdapter()).notifyDataSetChanged();
     }
 
     @Override
     public void onListItemClick(ListView listView, View view, int position, long id) {
         super.onListItemClick(listView, view, position, id);
         
-        Assignment a = ((AssignmentAdapter)getListAdapter()).getItem(position);
+        Period p = ((PeriodAdapter)getListAdapter()).getItem(position);
 
         // Notify the active callbacks interface (the activity, if the
         // fragment is attached to one) that an item has been selected.
-        mCallbacks.onItemSelected(a);
+        mCallbacks.onItemSelected(p);
     }
 
     @Override
@@ -148,9 +150,9 @@ public class PeriodListFragment extends ListFragment {
         mActivatedPosition = position;
     }
     
-    private class AssignmentAdapter extends ArrayAdapter<Assignment> {
-        public AssignmentAdapter(ArrayList<Assignment> assignments) {
-            super(getActivity(), android.R.layout.simple_list_item_1, assignments);
+    private class PeriodAdapter extends ArrayAdapter<Period> {
+        public PeriodAdapter(ArrayList<Period> periods) {
+            super(getActivity(), android.R.layout.simple_list_item_1, periods);
         }
     }
 }

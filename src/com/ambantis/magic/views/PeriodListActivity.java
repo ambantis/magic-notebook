@@ -1,17 +1,16 @@
 package com.ambantis.magic.views;
 
-import com.ambantis.magic.R;
+import java.util.ArrayList;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
+import com.ambantis.magic.R;
 import com.ambantis.magic.dao.DaoFactory;
 import com.ambantis.magic.exception.DaoConnectionException;
-import com.ambantis.magic.models.Assignment;
 import com.ambantis.magic.models.Period;
 import com.ambantis.magic.models.RollBook;
-
-import java.util.ArrayList;
 
 
 /**
@@ -52,7 +51,6 @@ public class PeriodListActivity extends FragmentActivity
         }
         ArrayList<Period> mPeriods = RollBook.getInstance().getPeriods();
 
-
         if (findViewById(R.id.period_detail_container) != null) {
             // The detail container view will be present only in the
             // large-screen layouts (res/values-large and
@@ -74,14 +72,13 @@ public class PeriodListActivity extends FragmentActivity
      * Callback method from {@link PeriodListFragment.Callbacks}
      * indicating that the item with the given ID was selected.
      */
-    @Override
-    public void onItemSelected(Assignment assignment) {
+    public void onItemSelected(Period period) {
         if (mTwoPane) {
             // In two-pane mode, show the detail view in this activity by
             // adding or replacing the detail fragment using a
             // fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(PeriodDetailFragment.ARG_ITEM_ID, assignment.getId().toString());
+            arguments.putString(PeriodDetailFragment.ARG_ITEM_ID, period.getmId().toString());
             PeriodDetailFragment fragment = new PeriodDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
@@ -92,7 +89,7 @@ public class PeriodListActivity extends FragmentActivity
             // In single-pane mode, simply start the detail activity
             // for the selected item ID.
             Intent detailIntent = new Intent(this, PeriodDetailActivity.class);
-            detailIntent.putExtra(PeriodDetailFragment.ARG_ITEM_ID, assignment.getId());
+            detailIntent.putExtra(PeriodDetailFragment.ARG_ITEM_ID, period.getmId());
             startActivity(detailIntent);
         }
     }
