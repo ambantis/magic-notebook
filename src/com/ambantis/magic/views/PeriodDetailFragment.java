@@ -2,10 +2,10 @@ package com.ambantis.magic.views;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTabHost;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.ambantis.magic.R;
 import com.ambantis.magic.dummy.DummyContent;
@@ -17,7 +17,10 @@ import com.ambantis.magic.dummy.DummyContent;
  * in two-pane mode (on tablets) or a {@link PeriodDetailActivity}
  * on handsets.
  */
+
 public class PeriodDetailFragment extends Fragment {
+    private FragmentTabHost mTabHost;
+    
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
@@ -28,14 +31,11 @@ public class PeriodDetailFragment extends Fragment {
      * The dummy content this fragment is presenting.
      */
     private DummyContent.DummyItem mItem;
-
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
+    
     public PeriodDetailFragment() {
+ 
     }
-
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,13 +53,26 @@ public class PeriodDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_period_detail, container, false);
+        mTabHost = new FragmentTabHost(getActivity());
+        
+        mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.period_detail_container);
 
-        // Show the dummy content as text in a TextView.
-        if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.period_detail)).setText(mItem.content);
-        }
+        mTabHost.addTab(mTabHost.newTabSpec("simple").setIndicator("Simple"),
+                FragmentStackSupport.CountingFragment.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("contacts").setIndicator("Contacts"),
+                LoaderCursorSupport.CursorLoaderListFragment.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("custom").setIndicator("Custom"),
+                LoaderCustomSupport.AppListFragment.class, null);
+        mTabHost.addTab(mTabHost.newTabSpec("throttle").setIndicator("Throttle"),
+                LoaderThrottleSupport.ThrottledLoaderListFragment.class, null);
 
-        return rootView;
+        return mTabHost;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mTabHost = null;
     }
 }
+
