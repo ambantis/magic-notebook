@@ -8,7 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ambantis.magic.R;
-import com.ambantis.magic.dummy.DummyContent;
+import com.ambantis.magic.models.Period;
+import com.ambantis.magic.models.RollBook;
 //import com.ambantis.magic.R;
 
 /**
@@ -20,20 +21,19 @@ import com.ambantis.magic.dummy.DummyContent;
 
 public class PeriodDetailFragment extends Fragment {
     private FragmentTabHost mTabHost;
+    private RollBook rb;
+    private Period mPeriod;
     
     /**
      * The fragment argument representing the item ID that this fragment
      * represents.
      */
     public static final String ARG_ITEM_ID = "item_id";
+    private String mIndex;
 
-    /**
-     * The dummy content this fragment is presenting.
-     */
-    private DummyContent.DummyItem mItem;
     
     public PeriodDetailFragment() {
- 
+    	rb = RollBook.getInstance();
     }
     
     @Override
@@ -46,7 +46,8 @@ public class PeriodDetailFragment extends Fragment {
             // to load content from a content provider.
         	
         	//Get the period by ARG_ITEM_ID
-            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+        
+        	mIndex = getArguments().getString(ARG_ITEM_ID);
         }
     }
 
@@ -56,9 +57,12 @@ public class PeriodDetailFragment extends Fragment {
         mTabHost = new FragmentTabHost(getActivity());
         
         mTabHost.setup(getActivity(), getChildFragmentManager(), R.id.period_detail_container);
-
+        
+        Bundle arguments = new Bundle();
+        arguments.putString(StudentListFragment.INDEX_ID, mIndex);
+        
         mTabHost.addTab(mTabHost.newTabSpec("simple").setIndicator("Simple"),
-                FragmentStackSupport.CountingFragment.class, null);
+                FragmentStackSupport.CountingFragment.class, arguments);
         mTabHost.addTab(mTabHost.newTabSpec("contacts").setIndicator("Contacts"),
                 LoaderCursorSupport.CursorLoaderListFragment.class, null);
         mTabHost.addTab(mTabHost.newTabSpec("custom").setIndicator("Custom"),

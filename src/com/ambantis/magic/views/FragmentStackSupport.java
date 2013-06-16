@@ -16,6 +16,8 @@
 
 package com.ambantis.magic.views;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -29,9 +31,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.ambantis.magic.R;
+import com.ambantis.magic.models.Student;
 
 public class FragmentStackSupport extends FragmentActivity {
     int mStackLevel = 1;
+    private ArrayList<Student> mStudents;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,7 +129,7 @@ public class FragmentStackSupport extends FragmentActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View v = inflater.inflate(R.layout.hello_world, container, false);
+            View v = inflater.inflate(R.layout.student_tab, container, false);
             View tv = v.findViewById(R.id.text);
             ((TextView)tv).setText("Fragment #" + mNum);
             tv.setBackgroundDrawable(getResources().getDrawable(android.R.drawable.gallery_thumb));

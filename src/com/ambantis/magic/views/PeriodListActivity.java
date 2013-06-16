@@ -78,7 +78,7 @@ public class PeriodListActivity extends FragmentActivity
             // adding or replacing the detail fragment using a
             // fragment transaction.
             Bundle arguments = new Bundle();
-            arguments.putString(PeriodDetailFragment.ARG_ITEM_ID, period.getmId().toString());
+            arguments.putString(PeriodDetailFragment.ARG_ITEM_ID, period.getmId());
             PeriodDetailFragment fragment = new PeriodDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
