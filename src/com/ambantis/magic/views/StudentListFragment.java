@@ -74,11 +74,7 @@ public class StudentListFragment extends ListFragment {
 
         int mIndex = Integer.parseInt(getArguments().getString(INDEX_ID));
         mPeriod = rb.getPeriods().get(mIndex);
-        ArrayList<Student> mStudents = mPeriod.getmStudents();
-        StudentAdapter adapter = new StudentAdapter(mStudents);
-        // TODO: replace with a real list adapter.
-        setListAdapter(adapter);
-        setRetainInstance(true);
+
     }
 
     @Override
@@ -90,6 +86,12 @@ public class StudentListFragment extends ListFragment {
                 && savedInstanceState.containsKey(STATE_ACTIVATED_POSITION)) {
             setActivatedPosition(savedInstanceState.getInt(STATE_ACTIVATED_POSITION));
         }
+        
+        ArrayList<Student> mStudents = mPeriod.getmStudents();
+        StudentAdapter adapter = new StudentAdapter(mStudents);
+        // TODO: replace with a real list adapter.
+        setListAdapter(adapter);
+        setRetainInstance(true);
     }
 
     @Override
