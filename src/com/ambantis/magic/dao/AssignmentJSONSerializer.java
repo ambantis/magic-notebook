@@ -44,7 +44,9 @@ public class AssignmentJSONSerializer {
 					.nextValue();
 			//Build array of assignments from JSON objects
 			for (int i = 0; i < array.length(); i++)
-				assignments.add(new Assignment(array.getJSONObject(i)));
+                //				assignments.add(new Assignment(array.getJSONObject(i)))
+                //  todo:2013-06-15:ambantis:fix this
+                ;
 		} catch (FileNotFoundException e) {
 			// Happens on first run
 		} finally {

@@ -24,7 +24,10 @@ public class AssignmentDaoMock implements AssignmentDao {
 
     @Override
     public ArrayList<Assignment> readAll() throws DaoException, DaoConnectionException {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        ArrayList<Assignment> tmpAssignments = new ArrayList<Assignment>();
+        Assignment s1 = Assignment.getNullAssignment();
+        tmpAssignments.add(s1);
+        return tmpAssignments;
     }
 
     @Override
