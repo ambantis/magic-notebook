@@ -16,6 +16,11 @@ public class Period implements Jsonable {
     private String mSubject;
     private String mId;
 
+    @Override
+    public String toString() {
+        return mId + " - " + mSubject;
+    }
+
     private static final Period nullPeriod = new Period(null,null,null,null);
 
     public static Period getNullPeriod() {
