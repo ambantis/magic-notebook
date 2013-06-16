@@ -1,5 +1,7 @@
 package com.ambantis.magic.models;
 
+import com.ambantis.magic.dao.DaoFactory;
+import com.ambantis.magic.exception.DaoConnectionException;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,7 +24,7 @@ public class RollBook implements Jsonable {
             Period p1 = new Period(
                     new ArrayList<Assignment>(),
                     new ArrayList<Student>(),
-                    "Physical Education",
+                    "Art",
                     "1"
             );
             Period p2 = new Period(
@@ -63,6 +65,21 @@ public class RollBook implements Jsonable {
             tmpPeriods.add(p5);
             tmpPeriods.add(p6);
             mRollBook.setPeriods(tmpPeriods);
+
+            ArrayList<Student> tmpStudents = new ArrayList<Student>();
+            try {
+                tmpStudents = DaoFactory.getInstance().getStudentDao().readAll();
+            } catch (DaoConnectionException e) {
+                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            }
+
+            for (Period period : tmpPeriods) {
+                period.setmStudents(tmpStudents);
+            }
+
+
+
+
         }
         return mRollBook;
     }
