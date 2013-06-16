@@ -23,6 +23,11 @@ public class DaoFactoryMock extends DaoFactory {
         return mDaoFactoryMock;
     }
 
+    public static void init() throws DaoConfigurationException, DaoConnectionException {
+        // todo:2013-06-15:ambantis:NOT IMPLEMENTED YET
+    }
+
+
     @Override
     Connection getConnection() throws DaoConfigurationException, DaoConnectionException {
         return null;  //To change body of implemented methods use File | Settings | File Templates.

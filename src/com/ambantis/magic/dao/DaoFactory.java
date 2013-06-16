@@ -22,8 +22,7 @@ public abstract class DaoFactory {
     }
 
     public static void init() throws DaoConfigurationException, DaoConnectionException {
-        if (daoFactory == null)
-            DaoFactoryMock.init();
+        DaoFactoryMock.init();
     }
 
     abstract Connection getConnection() throws DaoConfigurationException, DaoConnectionException;

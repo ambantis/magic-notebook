@@ -22,6 +22,10 @@ public class DaoFactoryJson extends DaoFactory {
         return mDaoFactoryJson;
     }
 
+    public static void init() throws DaoConfigurationException, DaoConnectionException {
+        //  todo:2013-06-15:ambantis:NOT IMPLEMENTED
+    }
+
     @Override
     Connection getConnection() throws DaoConfigurationException, DaoConnectionException {
         return null;  //To change body of implemented methods use File | Settings | File Templates.
