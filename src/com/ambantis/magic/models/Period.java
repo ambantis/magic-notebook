@@ -16,9 +16,9 @@ public class Period implements Jsonable {
     private String mSubject;
     private String mId;
 
-    private final Period nullPeriod = new Period(null,null,null,null);
+    private static final Period nullPeriod = new Period(null,null,null,null);
 
-    public Period getNullPeriod() {
+    public static Period getNullPeriod() {
         return nullPeriod;
     }
 

@@ -18,7 +18,7 @@ public class Assignment implements Jsonable {
     private Date mDueDate;
     private final static Assignment nullAssignment = new Assignment(null,null,null,null);
 
-    public Assignment getNullAssignment() {
+    public static Assignment getNullAssignment() {
         return nullAssignment;
     }
 

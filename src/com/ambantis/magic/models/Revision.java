@@ -14,7 +14,7 @@ public class Revision implements Jsonable {
 
     private static final Revision nullRevision = new Revision(null,null,null,null);
 
-    public Revision getNullRevision() {
+    public static Revision getNullRevision() {
         return nullRevision;
     }
 

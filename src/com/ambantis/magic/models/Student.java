@@ -16,7 +16,7 @@ public class Student implements Jsonable {
     private String lastName;
     private final static Student nullStudent = new Student(null,null,null);
 
-    public Student getNullStudent() {
+    public static Student getNullStudent() {
         return nullStudent;
     }
 

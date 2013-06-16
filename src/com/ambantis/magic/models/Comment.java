@@ -16,7 +16,7 @@ public class Comment implements Jsonable {
     private final static Comment nullComment =
             new Comment(null,null,null, null,null,null,null,null,null);
 
-    public Comment getNullComment() {
+    public static Comment getNullComment() {
         return nullComment;
     }
 

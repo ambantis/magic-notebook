@@ -15,7 +15,7 @@ public class Document implements Jsonable {
 
     private final static Document nullDocument = new Document(null,null,null,null,null,null);
 
-    public Document getNullDocument() {
+    public static Document getNullDocument() {
         return nullDocument;
     }
 
