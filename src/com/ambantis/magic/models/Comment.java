@@ -42,7 +42,7 @@ public class Comment implements Jsonable {
      * The user who wrote this comment.
      * COMMENTS.author : nested object (comment.author.displayName)
      */
-    private Student mAuthor;
+    private String mAuthorId;
 
     /**
      * The plain text content used to create this comment.
@@ -77,13 +77,13 @@ public class Comment implements Jsonable {
 //     */
 //    private ArrayList<Comment> mReplies;
 
-    public Comment(String mSelfLink, String mCommentId, Date mCreateDate, Student mAuthor,
+    public Comment(String mSelfLink, String mCommentId, Date mCreateDate, String mAuthorId,
                    String mContent, /*CommentStatus mStatus,*/ String mFileID) {
 //                    , String mFileTitle, ArrayList<Comment> mReplies) {
         this.mSelfLink = mSelfLink;
         this.mCommentId = mCommentId;
         this.mCreateDate = mCreateDate;
-        this.mAuthor = mAuthor;
+        this.mAuthorId = mAuthorId;
         this.mContent = mContent;
 //      this.mStatus = mStatus;
         this.mFileID = mFileID;
@@ -115,12 +115,12 @@ public class Comment implements Jsonable {
         this.mCreateDate = mCreateDate;
     }
 
-    public Student getmAuthor() {
-        return mAuthor;
+    public String getmAuthorId() {
+        return mAuthorId;
     }
 
-    public void setmAuthor(Student mAuthor) {
-        this.mAuthor = mAuthor;
+    public void setmAuthorId(String mAuthorId) {
+        this.mAuthorId = mAuthorId;
     }
 
     public String getmContent() {
