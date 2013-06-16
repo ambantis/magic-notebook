@@ -1,5 +1,8 @@
 package com.ambantis.magic.models;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 /**
@@ -7,7 +10,7 @@ import java.util.ArrayList;
  * Date: 6/15/13
  * Time: 11:31 AM
  */
-public class RollBook {
+public class RollBook implements Jsonable {
     private ArrayList<Period> mPeriods;
     private static RollBook mRollBook;
 
@@ -25,5 +28,10 @@ public class RollBook {
 
     public void setPeriods(ArrayList<Period> mPeriods) {
         this.mPeriods = mPeriods;
+    }
+
+    @Override
+    public JSONObject toJSON() throws JSONException {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

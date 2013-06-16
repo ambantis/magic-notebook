@@ -1,5 +1,8 @@
 package com.ambantis.magic.models;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Date;
 
 /**
@@ -7,7 +10,7 @@ import java.util.Date;
  * Date: 6/15/13
  * Time: 11:54 AM
  */
-public class Revision {
+public class Revision implements Jsonable {
 
     private static final Revision nullRevision = new Revision(null,null,null,null);
 
@@ -77,5 +80,10 @@ public class Revision {
 
     public void setmLastModifyingUserName(String mLastModifyingUserName) {
         this.mLastModifyingUserName = mLastModifyingUserName;
+    }
+
+    @Override
+    public JSONObject toJSON() throws JSONException {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

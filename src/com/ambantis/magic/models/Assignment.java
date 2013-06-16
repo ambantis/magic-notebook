@@ -1,13 +1,21 @@
 package com.ambantis.magic.models;
 
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.Date;
 
-public class Assignment {
+public class Assignment implements Jsonable {
+    private final String JSON_ID = "id";
+    private final String JSON_TITLE = "title";
+    private final String JSON_CREATE_DATE_TITLE = "createDate";
+    private final String JSON_DUE_DATE_TITLE = "dueDate";
+
     private String mTitle;
     private String mId;
-    private Date createDate;
-    private Date dueDate;
+    private Date mCreateDate;
+    private Date mDueDate;
     private final static Assignment nullAssignment = new Assignment(null,null,null,null);
 
     public Assignment getNullAssignment() {
@@ -17,8 +25,8 @@ public class Assignment {
     public Assignment(String mTitle, String mId, Date createDate, Date dueDate) {
         this.mTitle = mTitle;
         this.mId = mId;
-        this.createDate = createDate;
-        this.dueDate = dueDate;
+        this.mCreateDate = mCreateDate;
+        this.mDueDate = mDueDate;
     }
 
     public String getmTitle() {
@@ -38,19 +46,29 @@ public class Assignment {
     }
 
     public Date getCreateDate() {
-        return createDate;
+        return mCreateDate;
     }
 
     public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+        this.mCreateDate = createDate;
     }
 
     public Date getDueDate() {
-        return dueDate;
+        return mDueDate;
     }
 
     public void setDueDate(Date dueDate) {
-        this.dueDate = dueDate;
+        this.mDueDate = dueDate;
+    }
+
+    @Override
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put(JSON_ID, mId);
+        json.put(JSON_TITLE, mTitle);
+        json.put(JSON_CREATE_DATE_TITLE, mCreateDate);
+        json.put(JSON_DUE_DATE_TITLE, mDueDate);
+        return json;
     }
 
     //    import java.util.UUID;
@@ -63,8 +81,6 @@ public class Assignment {
 //    public UUID getId() {
 //        return mId;
 //    }
-//    private static final String JSON_ID = "id";
-//    private static final String JSON_TITLE = "title";
 //    private UUID mId;
 //    public Assignment() {
 //        mId = UUID.randomUUID();

@@ -1,5 +1,8 @@
 package com.ambantis.magic.models;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 /**
@@ -7,7 +10,7 @@ import java.util.ArrayList;
  * Date: 6/15/13
  * Time: 11:40 AM
  */
-public class Document {
+public class Document implements Jsonable {
     private Assignment mAssignment;
 
     private final static Document nullDocument = new Document(null,null,null,null,null,null);
@@ -97,5 +100,10 @@ public class Document {
 
     public void setmComments(ArrayList<Comment> mComments) {
         this.mComments = mComments;
+    }
+
+    @Override
+    public JSONObject toJSON() throws JSONException {
+        return null;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }
