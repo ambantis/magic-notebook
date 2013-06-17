@@ -3,6 +3,8 @@
 
     <string name="app_name">MagicNotebook</string>
     <string name="title_period_detail">Period Detail</string>
+    <string name="title_student_detail">Student Details</string>
+    <string name="title_assignment_detail">Assignment Details</string>
     <string name="title_main_tab">Tab View</string>
     <string name="home">Go home</string>
     <string name="new_fragment">Add new</string>

@@ -2,6 +2,7 @@ package com.ambantis.magic.views;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.MenuItemCompat;
@@ -10,15 +11,12 @@ import android.support.v4.widget.SearchViewCompat.OnCloseListenerCompat;
 import android.support.v4.widget.SearchViewCompat.OnQueryTextListenerCompat;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.ambantis.magic.R;
 import com.ambantis.magic.models.Period;
@@ -125,6 +123,10 @@ public class StudentListFragment extends ListFragment {
 	@Override public void onListItemClick(ListView l, View v, int position, long id) {
 		// Insert desired behavior here.
 		Log.i("LoaderCustom", "Item clicked: " + id);
+		Student s = ((StudentListAdapter)getListAdapter()).getItem(position);
+		Intent i = new Intent(getActivity(), StudentActivity.class);
+		i.putExtra(StudentFragment.STUDENT_ID, s.toString());
+		startActivity(i);
 	}
 	
     private class StudentListAdapter extends ArrayAdapter<Student> {

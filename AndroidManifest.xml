@@ -30,6 +30,23 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PeriodListActivity" />
         </activity>
+        <activity
+            android:name="com.ambantis.magic.views.StudentActivity"
+            android:label="@string/title_student_detail"
+            android:parentActivityName=".PeriodListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PeriodListActivity" />
+        </activity>
+        <activity
+            android:name="com.ambantis.magic.views.AssignmentActivity"
+            android:label="@string/title_assignment_detail"
+            android:parentActivityName=".PeriodListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".PeriodListActivity" />
+        </activity>
+        
     </application>
 
 </manifest>

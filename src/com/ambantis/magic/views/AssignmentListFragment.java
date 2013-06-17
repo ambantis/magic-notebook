@@ -2,6 +2,7 @@ package com.ambantis.magic.views;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.support.v4.view.MenuItemCompat;
@@ -122,6 +123,10 @@ public class AssignmentListFragment extends ListFragment {
 	@Override public void onListItemClick(ListView l, View v, int position, long id) {
 		// Insert desired behavior here.
 		Log.i("LoaderCustom", "Item clicked: " + id);
+		Assignment a = ((AssignmentListAdapter)getListAdapter()).getItem(position);
+		Intent i = new Intent(getActivity(), AssignmentActivity.class);
+		i.putExtra(AssignmentFragment.ASSIGNMENT_ID, a.toString());
+		startActivity(i);
 	}
 	
     private class AssignmentListAdapter extends ArrayAdapter<Assignment> {
